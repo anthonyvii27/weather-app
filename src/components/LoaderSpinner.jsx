@@ -8,7 +8,7 @@ function LoaderSpinner() {
       color="#FFF" 
       height={80} 
       width={80}
-      timeout={30000}
+      // timeout={30000}
     />
   )
 }
