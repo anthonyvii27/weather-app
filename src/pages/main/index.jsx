@@ -18,7 +18,7 @@ export default function Main() {
   const [unit, setUnit] = useState('cel')
   const [alert, setAlert] = useState('')
 
-  const key = 'b6907d289e10d714a6e88b30761fae22'
+  const key = 'PUT_YOUR_KEY_HERE'
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
