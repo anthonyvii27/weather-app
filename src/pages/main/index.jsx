@@ -4,9 +4,10 @@ import api from '../../services/api'
 import LoaderSpinner from '../../components/LoaderSpinner'
 import { Screen, Content, Location, Temp, OtherTemp, Description, Info, Center } from './styles'
 
-import clear from './images/clear.png'
 import wind from './images/wind.png'
 import humidity from './images/humidity.png'
+import arrow from './images/arrow.png'
+import info from './images/info.png'
 
 export default function Main() {
   const [latitude, setLatitude] = useState('')
@@ -17,7 +18,7 @@ export default function Main() {
   const [unit, setUnit] = useState('cel')
   const [alert, setAlert] = useState('')
 
-  const key = 'PUT_YOUR_KEY_HERE'
+  const key = 'b6907d289e10d714a6e88b30761fae22'
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -38,7 +39,7 @@ export default function Main() {
   }, [])
   
   async function getWeatherData() {
-    await api.get(`https://openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`)
+    await api.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`)
     .then(response => {
       setWeather(response)
       setAlert(null)
@@ -49,7 +50,7 @@ export default function Main() {
   }
 
   function getResult(){
-    api.get(`https://openweathermap.org/data/2.5/weather?q=${valueSearched}&appid=${key}`)
+    api.get(`https://api.openweathermap.org/data/2.5/weather?q=${valueSearched}&appid=${key}`)
     .then(response => {      
       setWeather(response)
       setAlert(null)
@@ -61,7 +62,7 @@ export default function Main() {
 
   useEffect(() => {
     if (alert !== '') document.getElementById('alert').innerHTML = alert;
-    if (latitude !== '' && longitude !== '' && valueSearched === '') getWeatherData();    
+    if (latitude !== '' && longitude !== '' && valueSearched === '') getWeatherData();
   })
   
 
@@ -91,9 +92,10 @@ export default function Main() {
               </div>
             </div>
 
-            <Description><img src={clear} /> { weather.data.weather[0].main }</Description>
-            <Info><img src={wind} /> Speed: { weather.data.wind.speed }</Info>
-            <Info><img src={humidity} /> Humidity: { weather.data.main.humidity }</Info>
+            <Description><img src={ arrow } /> { weather.data.weather[0].main }</Description>
+            <Info><img src={ info } /> { weather.data.weather[0].description }</Info>
+            <Info><img src={ wind } /> Speed: { weather.data.wind.speed }m/s</Info>
+            <Info><img src={ humidity } /> Humidity: { weather.data.main.humidity }%</Info>
           </>        
         : 
           <LoaderSpinner /> 

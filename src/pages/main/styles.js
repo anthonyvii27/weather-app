@@ -1,11 +1,15 @@
 import styled from 'styled-components'
+import mountains from './images/mountains.png'
 
 export const Screen = styled.div`   
-    background: linear-gradient(180deg, #49C2FE -3.19%, rgba(116, 196, 236, 0.6) 96.81%);;
+    background: linear-gradient(131.94deg, rgba(0, 117, 167, 0.96) 19.05%, rgba(147, 39, 123, 0.84) 96.78%), url(${mountains}) no-repeat;
+    background-size: cover;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
+    margin: 0;
 ` 
 
 export const Content = styled.div`
@@ -57,7 +61,7 @@ export const Content = styled.div`
     .btn {
         font: 400 12pt Quicksand, sands-serif;
         cursor: pointer;
-        background: #147CAC;
+        background: rgba(147, 39, 123, 0.84);
         border-radius: 50px;
         outline: none;
         border: none;
@@ -67,7 +71,7 @@ export const Content = styled.div`
     }
 
     .btn:hover {
-        background: #1476A3;
+        background: rgba(147, 39, 123, 0.96) ;
     }    
 
     .unit {
