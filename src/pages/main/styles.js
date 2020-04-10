@@ -8,8 +8,6 @@ export const Screen = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0;
-    margin: 0;
 ` 
 
 export const Content = styled.div`
@@ -97,21 +95,43 @@ export const Content = styled.div`
         width: 150px;
         margin-left: -75px;
     }
+
+    @media only screen and (max-width: 500px) {
+        hr {
+            width: 65px;
+        }
+
+        .unit {
+            display: none;
+        }
+    }
 `
 
 export const Location = styled.h2`
     font: 400 25pt Quicksand, sans-serif;
     text-align: center;
     margin-bottom: 35px;
+
+    @media only screen and (max-width: 500px) {
+        font: 400 20pt Quicksand, sans-serif;
+    }
 `
 
 export const Temp = styled.h1`
     font: 300 120pt Quicksand, sans-serif;
+
+    @media only screen and (max-width: 500px) {
+        font: 300 90pt Quicksand, sans-serif;
+    }
 `
 
 export const OtherTemp = styled.h3`
     font: 300 20pt Quicksand, sans-serif;
     padding: 7px;
+
+    @media only screen and (max-width: 500px) {
+        font: 300 15pt Quicksand, sans-serif;
+    }
 `
 
 export const Description = styled.h4`
@@ -126,6 +146,14 @@ export const Description = styled.h4`
         width: 35px;
         margin-right: 15px;
     }
+
+    @media only screen and (max-width: 500px) {
+        font: 400 20pt Quicksand, sans-serif;
+
+        img {
+            width: 25px;
+        }
+    }
 `
 
 export const Info = styled.h5`
@@ -137,6 +165,14 @@ export const Info = styled.h5`
     img {
         width: 30px;
         margin-right: 15px;
+    }
+
+    @media only screen and (max-width: 500px) {
+        font: 300 12pt Quicksand, sans-serif;
+
+        img {
+            width: 20px;
+        }
     }
 `
 

@@ -63,8 +63,7 @@ export default function Main() {
   useEffect(() => {
     if (alert !== '') document.getElementById('alert').innerHTML = alert;
     if (latitude !== '' && longitude !== '' && valueSearched === '') getWeatherData();
-  })
-  
+  })  
 
   return (
     <Screen>
@@ -84,11 +83,22 @@ export default function Main() {
             <Location>{ weather.data.name + ', ' + weather.data.sys.country }</Location>
             
             <div className="temp_informations">
-              <Temp>{ (unit === 'cel') ? Math.round(weather.data.main.temp) + '°' : Math.round((((weather.data.main.temp)) * 9) / 5 + 32) + '°' }</Temp>
+              <Temp>{ (unit === 'cel') ? 
+                Math.round(weather.data.main.temp) + '°' : 
+                Math.round((((weather.data.main.temp)) * 9) / 5 + 32) + '°' }
+              </Temp>
+
               <div>
-                <OtherTemp>{ (unit === 'cel') ? Math.round(weather.data.main.temp_min) + '° C' : Math.round((((weather.data.main.temp_min)) * 9) / 5 + 32) + '° F' }</OtherTemp>
+                <OtherTemp>{ (unit === 'cel') ? 
+                  Math.round(weather.data.main.temp_min) + '° C' : 
+                  Math.round((((weather.data.main.temp_min)) * 9) / 5 + 32) + '° F' }
+                </OtherTemp>
                 <hr />
-                <OtherTemp>{ (unit === 'cel') ? Math.round(weather.data.main.temp_max) + '° C' : Math.round((((weather.data.main.temp_max)) * 9) / 5 + 32) + '° F' }</OtherTemp>
+
+                <OtherTemp>{ (unit === 'cel') ? 
+                  Math.round(weather.data.main.temp_max) + '° C' : 
+                  Math.round((((weather.data.main.temp_max)) * 9) / 5 + 32) + '° F' }
+                </OtherTemp>
               </div>
             </div>
 
