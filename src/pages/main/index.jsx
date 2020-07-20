@@ -18,7 +18,7 @@ export default function Main() {
   const [unit, setUnit] = useState('cel')
   const [alert, setAlert] = useState('')
 
-  const key = 'PUT_YOUR_KEY_HERE'
+  const key = 'PUT_YOUR_KEY_HERE';
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -39,7 +39,7 @@ export default function Main() {
   }, [])
   
   async function getWeatherData() {
-    await api.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`)
+    await api.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`)
     .then(response => {
       setWeather(response)
       setAlert(null)
@@ -50,12 +50,12 @@ export default function Main() {
   }
 
   function getResult(){
-    api.get(`https://api.openweathermap.org/data/2.5/weather?q=${valueSearched}&appid=${key}`)
+    api.get(`https://api.openweathermap.org/data/2.5/weather?q=${valueSearched}&appid=${key}&units=metric`)
     .then(response => {      
       setWeather(response)
       setAlert(null)
     })
-    .catch(error => {
+    .catch(() => {
       setAlert('<div className="alert">Not finded</div>')
     })
   }
@@ -102,10 +102,10 @@ export default function Main() {
               </div>
             </div>
 
-            <Description><img src={ arrow } /> { weather.data.weather[0].main }</Description>
-            <Info><img src={ info } /> { weather.data.weather[0].description }</Info>
-            <Info><img src={ wind } /> Speed: { weather.data.wind.speed }m/s</Info>
-            <Info><img src={ humidity } /> Humidity: { weather.data.main.humidity }%</Info>
+            <Description><img src={ arrow } alt="icon_arrow" /> { weather.data.weather[0].main }</Description>
+            <Info><img src={ info } alt="icon_info" /> { weather.data.weather[0].description }</Info>
+            <Info><img src={ wind } alt="icon_wind"/> Speed: { weather.data.wind.speed }m/s</Info>
+            <Info><img src={ humidity } alt="icon_humidity" /> Humidity: { weather.data.main.humidity }%</Info>
           </>        
         : 
           <LoaderSpinner /> 
